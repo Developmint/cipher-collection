@@ -43,6 +43,7 @@ console.log(rot('Hello world!'))
 ## Currently available ciphers
 
 - ROT-N (custom number of rotations, optional number rotation)
+- Morse (custom delimiter, custom handling of unknown characters)
 
 
 ## Contributing
