@@ -1,7 +1,7 @@
 {
   "name": "cipher-collection",
   "version": "0.0.1",
-  "description": "",
+  "description": "Zero-dependency modular cipher collection including all well-known and often used ciphers",
   "main": "dist/cipher-collection.cjs.js",
   "module": "dist/cipher-collection.esm.js",
   "browser": "dist/cipher-collection.umd.js",
@@ -12,6 +12,14 @@
     "lint": "eslint --ext .js --ignore-path .gitignore .",
     "coverage": "codecov"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Developmint/cipher-collection"
+  },
+  "files": [
+    "src",
+    "dist"
+  ],
   "keywords": [
     "cipher",
     "crypto",
@@ -23,6 +31,10 @@
     "puzzle",
     "algorithms"
   ],
+  "engines": {
+    "node": ">=8.0.0",
+    "npm": ">=5.0.0"
+  },
   "author": "Alexander Lichter <npm@lichter.io>",
   "license": "MIT",
   "devDependencies": {
