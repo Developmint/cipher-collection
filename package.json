@@ -18,6 +18,9 @@
     "type": "git",
     "url": "git+https://github.com/Developmint/cipher-collection"
   },
+  "bugs": {
+    "url": "https://github.com/Developmint/cipher-collection/issues"
+  },
   "files": [
     "src",
     "dist"
