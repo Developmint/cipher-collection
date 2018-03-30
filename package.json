@@ -10,7 +10,9 @@
     "build:dev": "rollup -c -w",
     "test": "npm run lint && jest --coverage",
     "lint": "eslint --ext .js --ignore-path .gitignore .",
-    "coverage": "codecov"
+    "coverage": "codecov",
+    "commitmsg": "commitlint -e $GIT_PARAMS",
+    "precommit": "npm t"
   },
   "repository": {
     "type": "git",
@@ -38,6 +40,9 @@
   "author": "Alexander Lichter <npm@lichter.io>",
   "license": "MIT",
   "devDependencies": {
+    "@commitlint/cli": "^6.1.3",
+    "@commitlint/config-conventional": "^6.1.3",
+    "@commitlint/travis-cli": "^6.1.3",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.3",
     "babel-jest": "^22.4.3",
@@ -61,6 +66,7 @@
     "eslint-plugin-node": "^5.2.0",
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-standard": "^3.0.1",
+    "husky": "^0.14.3",
     "jest": "^22.4.3",
     "jest-each": "^0.3.1",
     "regenerator-runtime": "^0.11.1",
