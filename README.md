@@ -47,6 +47,7 @@ console.log(rot('Hello world!'))
 
 - ROT-N (custom number of rotations, optional number rotation)
 - Morse (custom delimiter, custom handling of unknown characters)
+- Fractionated Morse
 
 
 ## Contributing
