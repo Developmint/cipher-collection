@@ -1,5 +1,9 @@
 # Cipher Collection - All crypto algorithms you need
 
+<p align="center">
+  <a href="https://travis-ci.org/Developmint/cipher-collection"><img src="https://img.shields.io/travis/Developmint/cipher-collection/master.svg" alt="Build Status"></a>
+</p>
+
 > Zero-dependency modular cipher collection including all well-known and often used ciphers.
 
 ## Features
