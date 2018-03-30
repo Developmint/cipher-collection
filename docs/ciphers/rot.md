@@ -5,9 +5,19 @@ the n-th letter/number after it. It's most common variation is *ROT-13* or *Caes
 
 ## Cipher behavior information
 
-* Case sensitive? [x]
+* Case sensitive? ✓
 * Alphabet: `ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890`
 * Characters not in alphabet will be: **carried over**
+
+## Default options object
+
+```
+const options = {
+  rotateNumbers: false, // Should numbers get rotated as well?
+  rotations: 13 // Number of rotations
+}
+```
+
 
 ## Usage
 
@@ -23,22 +33,22 @@ console.log(rot('Hello world! I am the number 1')) //Uryyb jbeyq! V nz gur ahzor
 
 ### With numbers
 
-The second function argument enables number rotation as well.
+The second function argument enables number rotations as well.
 
 ```
 import { rot } from 'cipher-collection'
 
-console.log(rot('Hello world!', true)) //Uryyb jbeyq! V nz gur ahzore 4
+console.log(rot('Hello world!', { rotateNumbers: true })) //Uryyb jbeyq! V nz gur ahzore 4
 ```
 
 
 ### With custom rotation
 
-The third argument takes a custom rotation interval.
+The third argument takes a custom rotations interval.
 
 ```
 import { rot } from 'cipher-collection'
 
-console.log(rot('Hello world!', true, 1)) //Ifmmp xpsme! J bn uif ovncfs 2
-console.log(rot('Hello world!', false, 1)) //Ifmmp xpsme! J bn uif ovncfs 1
+console.log(rot('Hello world!', { rotations: 1 })) //Ifmmp xpsme! J bn uif ovncfs 1
+console.log(rot('Hello world!', { rotateNumbers: true, rotations: 1 })) //Ifmmp xpsme! J bn uif ovncfs 2
 ```

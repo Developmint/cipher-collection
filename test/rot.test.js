@@ -14,19 +14,19 @@ describe('rot', () => {
     ['BCDEFGHIJKLMNOPQRSTUVWXYZAbcdefghijklmnopqrstuvwxyza1234567890 .,:;?-_()\'=+/@', 1, 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890 .,:;?-_()\'=+/@'],
     [fullAlphabetRot13, 13, fullAlphabet],
     [fullAlphabet, 26, fullAlphabet]
-  ]).test('expecting %s when rotating %s correctly with custom rotation %s on default', (expected, customRot, str) => {
-    expect(rot(str, false, customRot)).toBe(expected)
+  ]).test('expecting %s when rotating %s correctly with custom rotations %s on default', (expected, rotations, str) => {
+    expect(rot(str, { rotations })).toBe(expected)
   })
 
   test('rotate alphabet with numbers', () => {
-    expect(rot(fullAlphabet, true)).toBe(fullAlphabetRot13WithNumbers)
+    expect(rot(fullAlphabet, { rotateNumbers: true })).toBe(fullAlphabetRot13WithNumbers)
   })
 
   each([
     ['BCDEFGHIJKLMNOPQRSTUVWXYZAbcdefghijklmnopqrstuvwxyza2345678901 .,:;?-_()\'=+/@', 1, 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890 .,:;?-_()\'=+/@'],
     [fullAlphabetRot13WithNumbers, 13, fullAlphabet],
     [fullAlphabet, 26, fullAlphabet]
-  ]).test('expecting %s when rotating (custom rotation %s, with numbers) %s', (expected, customRot, str) => {
-    expect(rot(str, true, customRot)).toBe(expected)
+  ]).test('expecting %s when rotating (custom rotations %s, with numbers) %s', (expected, rotations, str) => {
+    expect(rot(str, { rotateNumbers: true, rotations })).toBe(expected)
   })
 })
