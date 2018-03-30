@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run lint && jest",
-    "lint": "eslint --ext .js --ignore-path .gitignore ./src"
+    "lint": "eslint --ext .js --ignore-path .gitignore ."
   },
   "keywords": [
     "cipher",
@@ -49,5 +49,8 @@
       "node_modules",
       "src"
     ]
+  },
+  "dependencies": {
+    "eslint-plugin-jest": "^21.15.0"
   }
 }
