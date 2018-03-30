@@ -3,6 +3,7 @@
 <p align="center">
   <a href="https://travis-ci.org/Developmint/cipher-collection"><img src="https://img.shields.io/travis/Developmint/cipher-collection/master.svg" alt="Build Status"></a>
   <a href="https://codecov.io/gh/Developmint/cipher-collection"><img src="https://img.shields.io/codecov/c/github/Developmint/cipher-collection/master.svg" alt="Coverage Status"></a>
+  <a href="https://conventionalcommits.org"><img src="https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg" alt="We use Conventional Commits"></a>
 </p>
 
 > Zero-dependency modular cipher collection including all well-known and often used ciphers.
