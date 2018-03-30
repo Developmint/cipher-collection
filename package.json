@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npm run lint && jest",
-    "lint": "eslint --ext .js --ignore-path .gitignore ."
+    "test": "npm run lint && jest --coverage",
+    "lint": "eslint --ext .js --ignore-path .gitignore .",
+    "coverage": "codecov"
   },
   "keywords": [
     "cipher",
@@ -30,6 +31,7 @@
     "babel-preset-stage-2": "^6.22.0",
     "babel-register": "^6.22.0",
     "chalk": "^2.0.1",
+    "codecov": "^3.0.0",
     "cross-spawn": "^5.0.1",
     "eslint": "^4.13.1",
     "eslint-config-standard": "^10.2.1",
@@ -48,7 +50,8 @@
     "moduleDirectories": [
       "node_modules",
       "src"
-    ]
+    ],
+    "coverageDirectory": "./coverage/"
   },
   "dependencies": {
     "eslint-plugin-jest": "^21.15.0"
