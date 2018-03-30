@@ -3,6 +3,9 @@
 <p align="center">
   <a href="https://travis-ci.org/Developmint/cipher-collection"><img src="https://img.shields.io/travis/Developmint/cipher-collection/master.svg" alt="Build Status"></a>
   <a href="https://codecov.io/gh/Developmint/cipher-collection"><img src="https://img.shields.io/codecov/c/github/Developmint/cipher-collection/master.svg" alt="Coverage Status"></a>
+  <a href="https://www.npmjs.com/package/cipher-collection"><img src="https://img.shields.io/npm/dm/cipher-collection.svg" alt="Downloads"></a>
+  <a href="https://www.npmjs.com/package/cipher-collection"><img src="https://img.shields.io/npm/v/cipher-collection.svg" alt="Version"></a>
+  <a href="https://www.npmjs.com/package/cipher-collection"><img src="https://img.shields.io/npm/l/cipher-collection.svg" alt="License"></a>
   <a href="https://conventionalcommits.org"><img src="https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg" alt="We use Conventional Commits"></a>
 </p>
 
