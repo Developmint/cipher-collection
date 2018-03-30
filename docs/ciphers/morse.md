@@ -17,7 +17,7 @@ The options are the same for both methods, `encode` and `decode`
 const options = {
   separator: ' ', // Custom delimiter or glue
   failOnUnknownCharacter: true, // Should an error be thrown when a character is not included in the alphabet
-  ommitUnknownCharacter: false  // Should unknown character be ommitted or preserverd? (Only if failOnUnknownCharacter is false)
+  omitUnknownCharacter: false  // Should unknown character be omitted or preserverd? (Only if failOnUnknownCharacter is false)
 }
 ```
 
@@ -59,20 +59,20 @@ import { encode } from 'cipher-collection/morse'
 const preserveOptions = {
   separator: '',
   failOnUnknownCharacter: false,
-  ommitUnknownCharacter: false
+  omitUnknownCharacter: false
 }
 
 // Preserve chraracters that can't get encoded
 console.log(encode('€€€', preserveOptions)) // €€€
 
-const ommitOptions = {
+const omitOptions = {
   separator: '',
   failOnUnknownCharacter: false,
-  ommitUnknownCharacter: true
+  omitUnknownCharacter: true
 }
 
-// Ommit chraracters that can't get encoded
-console.log(encode('€€€S', ommitOptions)) // ...
+// omit chraracters that can't get encoded
+console.log(encode('€€€S', omitOptions)) // ...
 ```
 
 
@@ -105,17 +105,17 @@ import { decode } from 'cipher-collection/morse'
 
 const preserveOptions = {
   failOnUnknownCharacter: false,
-  ommitUnknownCharacter: false
+  omitUnknownCharacter: false
 }
 
 // Preserve chraracters that can't get decoded
 console.log(decode('.-.-.-.-.-', preserveOptions)) // .-.-.-.-.-
 
-const ommitOptions = {
+const omitOptions = {
   failOnUnknownCharacter: false,
-  ommitUnknownCharacter: true
+  omitUnknownCharacter: true
 }
 
-// Ommit chraracters that can't get decoded
-console.log(decode('.-.-.-.-.- ...', ommitOptions)) // S
+// omit chraracters that can't get decoded
+console.log(decode('.-.-.-.-.- ...', omitOptions)) // S
 ```

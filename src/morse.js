@@ -9,7 +9,7 @@ export const decode = (input, options = {}) => {
     if (options.failOnUnknownCharacter) {
       throw Error('Undecodable character')
     }
-    return options.ommitUnknownCharacter ? '' : c
+    return options.omitUnknownCharacter ? '' : c
   }).join('')
 }
 
@@ -25,7 +25,7 @@ export const encode = (input, options = {}) => {
     if (options.failOnUnknownCharacter) {
       throw Error('Unencodable character')
     }
-    return options.ommitUnknownCharacter ? '' : c
+    return options.omitUnknownCharacter ? '' : c
   }).join(options.separator)
 }
 
@@ -86,7 +86,7 @@ const ALPHABET = {
 const DEFAULT_OPTIONS = {
   separator: ' ',
   failOnUnknownCharacter: true,
-  ommitUnknownCharacter: false
+  omitUnknownCharacter: false
 }
 export default {
   decode,

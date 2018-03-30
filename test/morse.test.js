@@ -7,12 +7,12 @@ const encodedAlphabet = '.- -... -.-. -.. . ..-. --. .... .. .--- -.- .-.. -- -.
 const invalidCharacter = {
   input: '€S',
   preserve: '€...',
-  ommit: '...'
+  omit: '...'
 }
 const invalidMorseCharacter = {
   input: '.-.-.-.-.-.- ...',
   preserve: '.-.-.-.-.-.-S',
-  ommit: 'S'
+  omit: 'S'
 }
 
 describe('decoding', () => {
@@ -33,8 +33,8 @@ describe('decoding', () => {
     })).toBe(invalidMorseCharacter.preserve)
     expect(morse.decode(invalidMorseCharacter.input, {
       failOnUnknownCharacter: false,
-      ommitUnknownCharacter: true
-    })).toBe(invalidMorseCharacter.ommit)
+      omitUnknownCharacter: true
+    })).toBe(invalidMorseCharacter.omit)
   })
 })
 describe('encoding', () => {
@@ -50,7 +50,7 @@ describe('encoding', () => {
     expect(morse.encode(invalidCharacter.input, {
       separator: '',
       failOnUnknownCharacter: false,
-      ommitUnknownCharacter: true
-    })).toBe(invalidCharacter.ommit)
+      omitUnknownCharacter: true
+    })).toBe(invalidCharacter.omit)
   })
 })
