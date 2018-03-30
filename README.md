@@ -37,7 +37,7 @@ console.log(rot('Hello world!'))
 ES5 import:
 
 ```
-const rot = require('cipher-collection/rot')
+const rot = require('cipher-collection').rot
 
 console.log(rot('Hello world!'))
 ```
