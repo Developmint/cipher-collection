@@ -2,6 +2,7 @@
 
 <p align="center">
   <a href="https://travis-ci.org/Developmint/cipher-collection"><img src="https://img.shields.io/travis/Developmint/cipher-collection/master.svg" alt="Build Status"></a>
+  <a href="https://codecov.io/gh/Developmint/cipher-collection"><img src="https://img.shields.io/codecov/c/github/Developmint/cipher-collection/master.svg" alt="Coverage Status"></a>
 </p>
 
 > Zero-dependency modular cipher collection including all well-known and often used ciphers.
