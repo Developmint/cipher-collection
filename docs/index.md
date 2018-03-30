@@ -8,4 +8,5 @@
 ## Ciphers
 
 * [ROT-N](./ciphers/rot.md)
+* [Morse](./ciphers/morse.md)
 
