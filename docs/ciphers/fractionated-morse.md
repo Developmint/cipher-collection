@@ -1,13 +1,13 @@
 # Fractionated Morse
 
-> A doubling substitution cipher based on the Morse keyAlphabet.
+> A doubling substitution cipher based on the Morse cipher.
 
 ## Cipher behavior information
 
 * Case sensitive? ❌
 * Deterministic? ✓
 * Alphabet: `ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890 .,:;?-_()'=+/@`
-* Characters not in keyAlphabet will be: **omitted** or **throwing an error (default)**
+* Characters not in alphabet will be: **omitted** or **throwing an error (default)**
 
 ## Default options object
 
