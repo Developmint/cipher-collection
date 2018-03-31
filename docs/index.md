@@ -10,4 +10,5 @@
 * [ROT-N](./ciphers/rot.md)
 * [Morse](./ciphers/morse.md)
 * [Fractionated Morse](./ciphers/fractionated-morse.md)
+* [Pollux](./ciphers/pollux.md)
 
