@@ -50,6 +50,7 @@ console.log(rot('Hello world!'))
 - Fractionated Morse
 - Pollux
 - Multi-Tap
+- Manchester code
 
 
 ## Contributing
