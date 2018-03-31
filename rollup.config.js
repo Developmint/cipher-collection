@@ -1,4 +1,5 @@
 import babel from 'rollup-plugin-babel'
+import uglify from 'rollup-plugin-uglify'
 import pkg from './package.json'
 
 const plugins = [
@@ -25,7 +26,7 @@ export default [
       file: pkg.browser,
       format: 'umd'
     },
-    plugins
+    plugins: [...plugins, uglify()]
   },
   {
     input: 'src/index.js',
