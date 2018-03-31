@@ -5,6 +5,7 @@
 ## Cipher behavior information
 
 * Case sensitive? ❌
+* Deterministic? ✓
 * Alphabet: `ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890 .,:;?-_()'=+/@`
 * Characters not in keyAlphabet will be: **omitted** or **throwing an error (default)**
 

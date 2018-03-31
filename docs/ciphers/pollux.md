@@ -6,7 +6,8 @@
 
 ## Cipher behavior information
 
-* Case sensitive? ❌
+* Case sensitive? ❌ (Keys are case sensitive though)
+* Deterministic? ❌
 * Alphabet: `ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890 .,:;?-_()'=+/@`
 * Characters not in Alphabet will be: **throwing an error (default)**
 

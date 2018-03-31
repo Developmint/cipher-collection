@@ -6,6 +6,7 @@ the n-th letter/number after it. It's most common variation is *ROT-13* or *Caes
 ## Cipher behavior information
 
 * Case sensitive? ✓
+* Deterministic? ✓
 * Alphabet: `ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890`
 * Characters not in alphabet will be: **carried over**
 
