@@ -28,25 +28,20 @@ const options = {
 #### Default
 
 ```
-// Direct import if you need encode and decode
 import { morse } from 'cipher-collection'
 
-// morse.encode()/morse.decoode()
 
-// Alternative
-import { encode } from 'cipher-collection/morse'
-
-console.log(encode('SOS')) // ... --- ...
+console.log(morse.encode('SOS')) // ... --- ...
 ```
 
 #### With custom glue
 
 ```
-import { encode } from 'cipher-collection/morse'
+import { morse } from 'cipher-collection'
 
 const options = { separator: '~' }
 
-console.log(encode('SOS', options)) // ...~---~...
+console.log(morse.encode('SOS', options)) // ...~---~...
 ```
 
 #### Without error throwing
@@ -54,7 +49,7 @@ console.log(encode('SOS', options)) // ...~---~...
 There are **two options** when disabling errors:
 
 ```
-import { encode } from 'cipher-collection/morse'
+import { morse } from 'cipher-collection'
 
 const preserveOptions = {
   separator: '',
@@ -63,7 +58,7 @@ const preserveOptions = {
 }
 
 // Preserve chraracters that can't get encoded
-console.log(encode('€€€', preserveOptions)) // €€€
+console.log(morse.encode('€€€', preserveOptions)) // €€€
 
 const omitOptions = {
   separator: '',
@@ -72,7 +67,7 @@ const omitOptions = {
 }
 
 // omit chraracters that can't get encoded
-console.log(encode('€€€S', omitOptions)) // ...
+console.log(morse.encode('€€€S', omitOptions)) // ...
 ```
 
 
@@ -81,19 +76,19 @@ console.log(encode('€€€S', omitOptions)) // ...
 #### Default
 
 ```
-import { decode } from 'cipher-collection/morse'
+import { morse } from 'cipher-collection'
 
-console.log(decode('... --- ...')) // SOS
+console.log(morse.decode('... --- ...')) // SOS
 ```
 
 #### With custom delimiter
 
 ```
-import { decode } from 'cipher-collection/morse'
+import { morse } from 'cipher-collection'
 
 const options = { separator: '~' }
 
-console.log(decode('...~---~...', options)) // SOS
+console.log(morse.decode('...~---~...', options)) // SOS
 ```
 
 #### Without error throwing
@@ -101,7 +96,7 @@ console.log(decode('...~---~...', options)) // SOS
 Similar to `encode`, there are **two options** when disabling errors:
 
 ```
-import { decode } from 'cipher-collection/morse'
+import { morse } from 'cipher-collection'
 
 const preserveOptions = {
   failOnUnknownCharacter: false,
@@ -109,7 +104,7 @@ const preserveOptions = {
 }
 
 // Preserve chraracters that can't get decoded
-console.log(decode('.-.-.-.-.-', preserveOptions)) // .-.-.-.-.-
+console.log(morse.decode('.-.-.-.-.-', preserveOptions)) // .-.-.-.-.-
 
 const omitOptions = {
   failOnUnknownCharacter: false,
@@ -117,5 +112,5 @@ const omitOptions = {
 }
 
 // omit chraracters that can't get decoded
-console.log(decode('.-.-.-.-.- ...', omitOptions)) // S
+console.log(morse.decode('.-.-.-.-.- ...', omitOptions)) // S
 ```
