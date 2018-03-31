@@ -11,4 +11,5 @@
 * [Morse](./ciphers/morse.md)
 * [Fractionated Morse](./ciphers/fractionated-morse.md)
 * [Pollux](./ciphers/pollux.md)
+* [Multi-Tap](./ciphers/multi-tap.md)
 

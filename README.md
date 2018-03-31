@@ -49,6 +49,7 @@ console.log(rot('Hello world!'))
 - Morse (custom delimiter, custom handling of unknown characters)
 - Fractionated Morse
 - Pollux
+- Multi-Tap
 
 
 ## Contributing
