@@ -57,4 +57,4 @@ Please see our [CONTRIBUTING.md](./CONTRIBUTING.md)
 
 ## 📑 License
 
-[MIT License](./LICENSE) - Copyright (c) Developmint - Alexander Lichter
+[MIT License](./LICENSE.md) - Copyright (c) Developmint - Alexander Lichter
