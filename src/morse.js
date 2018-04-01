@@ -1,3 +1,5 @@
+import { throwOrSilent } from './helpers'
+
 export const decode = (input, options = {}) => {
   options = { ...DEFAULT_OPTIONS, ...options }
   return input.split(options.separator).map(c => {
@@ -6,9 +8,8 @@ export const decode = (input, options = {}) => {
     if (decodedCharacter) {
       return decodedCharacter[0]
     }
-    if (options.failOnUnknownCharacter) {
-      throw Error('Undecodable character')
-    }
+    throwOrSilent(options, `Undecodable character ${c}`)
+
     return options.omitUnknownCharacter ? '' : c
   }).join('')
 }
@@ -22,9 +23,8 @@ export const encode = (input, options = {}) => {
     if (encodedCharacter) {
       return encodedCharacter[1]
     }
-    if (options.failOnUnknownCharacter) {
-      throw Error('Unencodable character')
-    }
+    throwOrSilent(options, `Unencodable character ${c}`)
+
     return options.omitUnknownCharacter ? '' : c
   }).join(options.separator)
 }

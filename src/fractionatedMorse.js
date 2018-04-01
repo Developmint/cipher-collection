@@ -1,4 +1,5 @@
 import morse from './morse'
+import { throwOrSilent } from './helpers'
 
 export const decode = (input, options = {}) => {
   options = { ...DEFAULT_OPTIONS, ...options }
@@ -9,10 +10,8 @@ export const decode = (input, options = {}) => {
     if (decodedCharacterIndex !== -1) {
       return ENCODED_ALPHABET[decodedCharacterIndex]
     }
-    if (options.failOnUnknownCharacter) {
-      throw Error(`Undecodable character ${c}`)
-    }
-    return ''
+
+    return throwOrSilent(options, `Undecodable character ${c}`)
   })
     .join('')
 
@@ -38,11 +37,7 @@ export const encode = (input, options = {}) => {
         return options.keyAlphabet[encodedCharacterIndex]
       }
 
-      if (options.failOnUnknownCharacter) {
-        throw Error(`Unencodable character ${c}`)
-      }
-
-      return ''
+      return throwOrSilent(options, `Unencodable character ${c}`)
     }).join('')
 }
 

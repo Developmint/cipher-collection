@@ -1,26 +1,20 @@
+import { throwOrSilent } from './helpers'
+
 const decode = (input, options = {}) => {
   options = { ...DEFAULT_OPTIONS, ...options }
 
   if (input.match(/[^01]/g)) {
-    if (options.failOnUnknownCharacter) {
-      throw Error('Invalid Input')
-    }
+    throwOrSilent(options, 'Invalid Input')
     input = [...input].filter(c => '01'.includes(c)).join('')
   }
 
   if (input.length % 2) {
-    if (options.failOnUnknownCharacter) {
-      throw Error('Invalid Input')
-    }
-    return ''
+    return throwOrSilent(options, 'Invalid Input')
   }
   const splitUp = splitInput(input)
 
   if (!splitUp || !splitUp.length) {
-    if (options.failOnUnknownCharacter) {
-      throw Error('Invalid Input after splitting')
-    }
-    return ''
+    return throwOrSilent(options, 'Invalid Input after splitting')
   }
 
   const result = splitUp.map(xorWithClock).join('').split('').filter((_, k) => k % 2 === 0).join('')
@@ -32,9 +26,8 @@ const encode = (input, options = {}) => {
   options = { ...DEFAULT_OPTIONS, ...options }
 
   if (input.match(/[^01]/g)) {
-    if (options.failOnUnknownCharacter) {
-      throw Error('Invalid Input')
-    }
+    throwOrSilent(options, 'Invalid Input')
+
     input = [...input].filter(c => '01'.includes(c)).join('')
   }
 
@@ -44,10 +37,7 @@ const encode = (input, options = {}) => {
   const splitUp = splitInput(doubledInput)
 
   if (!splitUp || !splitUp.length) {
-    if (options.failOnUnknownCharacter) {
-      throw Error('Invalid Input after splitting')
-    }
-    return ''
+    return throwOrSilent(options, 'Invalid Input after splitting')
   }
 
   const result = splitUp.map(xorWithClock).join('')

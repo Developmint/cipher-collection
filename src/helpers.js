@@ -8,8 +8,8 @@ export const randomInRange = (min, max) => {
   return Math.floor(Math.random() * (max - min)) + min
 }
 
-export const throwOrSilent = ({ failOnUnknownCharacter }, errorMessage) => {
-  if (failOnUnknownCharacter) {
+export const throwOrSilent = (options, errorMessage) => {
+  if (options.failOnUnknownCharacter) {
     throw Error(errorMessage)
   }
   return ''

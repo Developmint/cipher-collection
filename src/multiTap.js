@@ -1,3 +1,5 @@
+import { throwOrSilent } from './helpers'
+
 export const encode = (input, options = {}) => {
   options = { ...DEFAULT_OPTIONS, ...options }
   return [...input.toUpperCase()]
@@ -7,10 +9,7 @@ export const encode = (input, options = {}) => {
         const amount = decodedCharacter[1].indexOf(c) + 1
         return (options.exponentForm ? `${decodedCharacter[0]}^${amount}` : `${decodedCharacter[0]}`.repeat(amount))
       }
-      if (options.failOnUnknownCharacter) {
-        throw Error(`Unencodable character ${c}`)
-      }
-      return ''
+      return throwOrSilent(options, `Unencodable character ${c}`)
     })
     .filter(c => c.length)
     .join(options.withSpacing ? ' ' : '')
