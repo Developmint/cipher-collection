@@ -4,6 +4,16 @@
   to transmit information over telephone lines between telephone equipment and other
   communications devices and switching centers.
 
+## Lookup table
+
+
+|        | 1209 Hz | 1336 Hz | 1477 Hz | 1633 Hz |
+|--------|:-------:|:-------:|:-------:|:-------:|
+| 697 Hz |    1    |    2    |    3    |    A    |
+| 770 Hz |    4    |    5    |    6    |    B    |
+| 852 Hz |    7    |    8    |    9    |    C    |
+| 942 Hz |    *    |    0    |    #    |    D    |
+
 ## Cipher behavior information
 
 * Case sensitive? ❌
