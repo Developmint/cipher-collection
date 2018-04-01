@@ -51,7 +51,7 @@ console.log(rot('Hello world!'))
 - Pollux
 - Multi-Tap
 - Manchester code
-
+- DTMF
 
 ## Contributing
 

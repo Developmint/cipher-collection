@@ -13,4 +13,5 @@
 * [Pollux](./ciphers/pollux.md)
 * [Multi-Tap](./ciphers/multi-tap.md)
 * [Manchester code](./ciphers/manchester.md)
+* [DTMF](./ciphers/dtmf.md)
 

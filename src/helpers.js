@@ -7,3 +7,10 @@ export const randomInRange = (min, max) => {
   max = Math.floor(max)
   return Math.floor(Math.random() * (max - min)) + min
 }
+
+export const throwOrSilent = ({ failOnUnknownCharacter }, errorMessage) => {
+  if (failOnUnknownCharacter) {
+    throw Error(errorMessage)
+  }
+  return ''
+}
