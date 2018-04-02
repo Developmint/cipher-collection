@@ -14,3 +14,5 @@ export const throwOrSilent = (options, errorMessage) => {
   }
   return ''
 }
+
+export const isBrowser = (() => typeof window === 'object')()

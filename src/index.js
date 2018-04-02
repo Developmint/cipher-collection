@@ -4,6 +4,7 @@ import fractionatedMorse from './fractionatedMorse'
 import pollux from './pollux'
 import multiTap from './multiTap'
 import dtmf from './dtmf'
+import base64 from './base64'
 
 export default {
   rot,
@@ -11,5 +12,6 @@ export default {
   fractionatedMorse,
   pollux,
   multiTap,
-  dtmf
+  dtmf,
+  base64
 }

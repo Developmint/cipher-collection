@@ -52,6 +52,7 @@ console.log(rot('Hello world!'))
 - Multi-Tap
 - Manchester code
 - DTMF
+- Base64 (with unicode support!)
 
 ## Contributing
 
