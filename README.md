@@ -53,6 +53,7 @@ console.log(rot('Hello world!'))
 - Manchester code
 - DTMF
 - Base64 (with unicode support!)
+- Wolfenbuetteler code
 
 ## Contributing
 

@@ -5,6 +5,7 @@ import pollux from './pollux'
 import multiTap from './multiTap'
 import dtmf from './dtmf'
 import base64 from './base64'
+import wolfenbuetteler from './wolfenbuetteler'
 
 export default {
   rot,
@@ -13,5 +14,6 @@ export default {
   pollux,
   multiTap,
   dtmf,
-  base64
+  base64,
+  wolfenbuetteler
 }

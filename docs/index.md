@@ -15,4 +15,5 @@
 * [Manchester code](./ciphers/manchester.md)
 * [DTMF](./ciphers/dtmf.md)
 * [Base64](./ciphers/base64.md)
+* [Wolfenbuetteler code](./ciphers/wolfenbuetteler.md)
 
