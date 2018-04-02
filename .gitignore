@@ -28,6 +28,7 @@ bower_components
 .lock-wscript
 build/Release
 node_modules/
+package-lock.json
 jspm_packages/
 typings/
 .npm
