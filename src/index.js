@@ -7,6 +7,7 @@ import dtmf from './dtmf'
 import base64 from './base64'
 import wolfenbuetteler from './wolfenbuetteler'
 import multiplicative from './multiplicative'
+import affine from './affine'
 
 export default {
   rot,
@@ -17,5 +18,6 @@ export default {
   dtmf,
   base64,
   wolfenbuetteler,
-  multiplicative
+  multiplicative,
+  affine
 }

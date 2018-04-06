@@ -55,6 +55,7 @@ console.log(rot('Hello world!'))
 - Base64 (with unicode support!)
 - Wolfenbuetteler code
 - Multiplicative cipher
+- Affine
 
 ## Contributing
 

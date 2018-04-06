@@ -17,4 +17,5 @@
 * [Base64](./ciphers/base64.md)
 * [Wolfenbuetteler code](./ciphers/wolfenbuetteler.md)
 * [Multiplicative cipher](./ciphers/multiplicative.md)
+* [Affine](./ciphers/affine.md)
 
