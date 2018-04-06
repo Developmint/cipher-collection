@@ -13,19 +13,18 @@
  * const input = 'ABC'
  * rot(input) // NOP
  */
-import { ASCII } from './helpers'
+import { ROTATE_AND_MULTIPLY_TYPES, rotateAndMultiply } from './helpers/rotateAndMultiply'
 
 export default (input, options = {}) => {
   options = { ...DEFAULT_OPTIONS, ...options }
-  options.rotations %= 26
-  return [...input].map(c => {
-    return (c >= 'a' && c <= 'z') ? rotatedCharacter(c, ASCII.a, options.rotations) : (c >= 'A' && c <= 'Z')
-      ? rotatedCharacter(c, ASCII.A, options.rotations) : (options.rotateNumbers && c >= '0' && c <= '9')
-        ? rotatedCharacter(c, ASCII[0], options.rotations, 10) : c
-  }).join('')
+  return [...input].map(c => rotateAndMultiply(c, getConfig(options))).join('')
 }
 
-const rotatedCharacter = (c, asciiCode, rotation, mod = 26) => String.fromCharCode(asciiCode + (c.charCodeAt(0) - asciiCode + rotation) % mod)
+const getConfig = options => ({
+  types: options.rotateNumbers ? true : [ROTATE_AND_MULTIPLY_TYPES.LOWERCASE, ROTATE_AND_MULTIPLY_TYPES.UPPERCASE, ROTATE_AND_MULTIPLY_TYPES.OTHER],
+  keys: [1, options.rotations % 26],
+  failOnUnknownCharacter: false
+})
 
 const DEFAULT_OPTIONS = {
   rotateNumbers: false,
