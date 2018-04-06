@@ -86,6 +86,10 @@
       "node_modules",
       "src"
     ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/.templates/"
+    ],
     "coverageDirectory": "./coverage/"
   }
 }
