@@ -54,7 +54,7 @@ const encode = (input, options = {}) => {
   }).join(options.separator)
 }
 
-const encodeResult = (frequencies, { mode, invertedOutput, connector, failOnUnknownCharacter }) => {
+const encodeResult = (frequencies, { mode, invertedOutput, connector }) => {
   // If output should be inverted, reverse array
   if (invertedOutput) {
     frequencies.reverse()
