@@ -13,6 +13,8 @@
  * const input = 'ABC'
  * rot(input) // NOP
  */
+import { ASCII } from './helpers'
+
 export default (input, options = {}) => {
   options = { ...DEFAULT_OPTIONS, ...options }
   options.rotations %= 26
@@ -24,12 +26,6 @@ export default (input, options = {}) => {
 }
 
 const rotatedCharacter = (c, asciiCode, rotation, mod = 26) => String.fromCharCode(asciiCode + (c.charCodeAt(0) - asciiCode + rotation) % mod)
-
-const ASCII = {
-  A: 65,
-  a: 97,
-  0: 48
-}
 
 const DEFAULT_OPTIONS = {
   rotateNumbers: false,

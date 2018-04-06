@@ -1,4 +1,5 @@
 import { randomInRange, substitute } from 'helpers'
+import { modInverse } from '../src/helpers'
 
 describe('randomInRange', () => {
   test('returns random number in range', () => {
@@ -37,5 +38,29 @@ describe('substitute', () => {
     expect(substitute('AMamA', mappingAndCaseInsensitiveOptions)).toBe('MAmaM')
 
     expect(substitute('B', mappingAndCaseInsensitiveOptions)).toBe('B')
+  })
+})
+
+describe('modInverse', () => {
+  test('it returns correct inverse', () => {
+    expect(modInverse(3, 26)).toBe(9)
+    expect(modInverse(9, 26)).toBe(3)
+    expect(modInverse(11, 26)).toBe(19)
+    expect(modInverse(1, 2)).toBe(1)
+  })
+  test('it throws error on invalid input', () => {
+    expect(() => { modInverse(-1, 26) }).toThrowError()
+    expect(() => { modInverse(3, 1) }).toThrowError()
+    expect(() => { modInverse(3, 0) }).toThrowError()
+    expect(() => { modInverse('b', 'A') }).toThrowError()
+  })
+  test('it returns correct inverse for prime mods', () => {
+    expect(modInverse(1, 7)).toBe(1)
+    expect(modInverse(2, 7)).toBe(4)
+    expect(modInverse(3, 7)).toBe(5)
+    expect(modInverse(4, 7)).toBe(2)
+    expect(modInverse(5, 7)).toBe(3)
+    expect(modInverse(6, 7)).toBe(6)
+    expect(modInverse(7, 7)).toBe(false)
   })
 })

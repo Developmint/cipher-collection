@@ -6,6 +6,7 @@ import multiTap from './multiTap'
 import dtmf from './dtmf'
 import base64 from './base64'
 import wolfenbuetteler from './wolfenbuetteler'
+import multiplicative from './multiplicative'
 
 export default {
   rot,
@@ -15,5 +16,6 @@ export default {
   multiTap,
   dtmf,
   base64,
-  wolfenbuetteler
+  wolfenbuetteler,
+  multiplicative
 }

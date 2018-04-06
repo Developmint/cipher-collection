@@ -54,6 +54,7 @@ console.log(rot('Hello world!'))
 - DTMF
 - Base64 (with unicode support!)
 - Wolfenbuetteler code
+- Multiplicative cipher
 
 ## Contributing
 
