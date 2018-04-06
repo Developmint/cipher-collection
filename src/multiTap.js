@@ -1,4 +1,4 @@
-import { throwOrSilent } from './helpers'
+import { throwOrSilent } from './helpers/index'
 
 export const encode = (input, options = {}) => {
   options = { ...DEFAULT_OPTIONS, ...options }

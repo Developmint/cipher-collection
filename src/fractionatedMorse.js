@@ -1,5 +1,5 @@
 import morse from './morse'
-import { throwOrSilent } from './helpers'
+import { throwOrSilent } from './helpers/index'
 
 export const decode = (input, options = {}) => {
   options = { ...DEFAULT_OPTIONS, ...options }
