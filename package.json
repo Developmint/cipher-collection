@@ -1,6 +1,6 @@
 {
   "name": "cipher-collection",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Zero-dependency modular cipher collection including all well-known and often used ciphers",
   "main": "dist/cipher-collection.cjs.js",
   "module": "dist/cipher-collection.esm.js",
