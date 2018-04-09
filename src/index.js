@@ -8,6 +8,7 @@ import base64 from './base64'
 import wolfenbuetteler from './wolfenbuetteler'
 import multiplicative from './multiplicative'
 import affine from './affine'
+import aer256 from './aer256'
 
 export default {
   rot,
@@ -19,5 +20,6 @@ export default {
   base64,
   wolfenbuetteler,
   multiplicative,
-  affine
+  affine,
+  aer256
 }

@@ -56,6 +56,7 @@ console.log(rot('Hello world!'))
 - Wolfenbuetteler code
 - Multiplicative cipher
 - Affine
+- AER-256
 
 ## Contributing
 
