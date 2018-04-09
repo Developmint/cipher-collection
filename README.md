@@ -11,18 +11,20 @@
 
 > Zero-dependency modular cipher collection including all well-known and often used ciphers.
 
-## Features
+## 🔥 Features
 
 - Modules per cipher to reduce size
 - Available as UMD, CJS and ES Module
 - Well tested and [documented](./docs/index.md)
+- Compatible with Node 8.0+
 - Zero dependencies
 - Customizable error handling
 
-## Getting started
+## 🔎 Getting started
 
 
-### Through NPM
+### 📦️ Through NPM
+
 ```
 $ npm install cipher-collection
 ```
@@ -42,15 +44,34 @@ const rot = require('cipher-collection').rot
 console.log(rot('Hello world!'))
 ```
 
+### 🔗 Using a CDN
 
-## Currently available ciphers
+Using a CDN is a great way to play around with the package or reproducing issues (eg. with JSFiddle).
+It is **not recommended** using the CDN build in production, because you won't have benefits of you bundlers optimizations
+and you need to load the full build, no matter how many ciphers you actually use on your page.
 
-- ROT-N (custom number of rotations, optional number rotation)
-- Morse (custom delimiter, custom handling of unknown characters)
+
+```html
+<html>
+<body>
+  <pre id="t"/>
+</body>
+</html>
+<script src="https://unpkg.com/cipher-collection/dist/cipher-collection.umd.js"></script>
+<script>
+document.getElementById("t").innerHTML = this["cipher-collection"].wolfenbuetteler('ABC');
+</script>
+```
+
+
+## 🔐 Currently available ciphers
+
+- ROT-N (optionally with numbers)
+- Morse
 - Fractionated Morse
 - Pollux
-- Multi-Tap
-- Manchester code
+- Multi-Tap (optionally as exponent expression)
+- Manchester code (both standards)
 - DTMF
 - Base64 (with unicode support!)
 - Wolfenbuetteler code
@@ -59,7 +80,11 @@ console.log(rot('Hello world!'))
 - AER-256
 - ARMON-64
 
-## Contributing
+## 📖 Documentation
+
+The documentation can be found [here](./docs/index.md)
+
+## 🛠️ Contributing
 
 Please see our [CONTRIBUTING.md](./CONTRIBUTING.md)
 
