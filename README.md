@@ -57,6 +57,7 @@ console.log(rot('Hello world!'))
 - Multiplicative cipher
 - Affine
 - AER-256
+- ARMON-64
 
 ## Contributing
 
