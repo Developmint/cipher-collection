@@ -9,6 +9,7 @@ import wolfenbuetteler from './wolfenbuetteler'
 import multiplicative from './multiplicative'
 import affine from './affine'
 import aer256 from './aer256'
+import armon64 from './armon64'
 
 export default {
   rot,
@@ -21,5 +22,6 @@ export default {
   wolfenbuetteler,
   multiplicative,
   affine,
-  aer256
+  aer256,
+  armon64
 }
