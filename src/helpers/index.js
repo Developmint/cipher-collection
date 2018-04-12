@@ -8,6 +8,13 @@ export const randomInRange = (min, max) => {
   return Math.floor(Math.random() * (max - min)) + min
 }
 
+/**
+ * Throw an error or return an empty string silently
+ * @param {object} options Object that **must** include a property called `failOnUnknownCharacter` which determines
+ * if an error will be thrown or not
+ * @param {string} errorMessage The error message that will be possibly used
+ * @returns {string}
+ */
 export const throwOrSilent = (options, errorMessage) => {
   if (options.failOnUnknownCharacter) {
     throw Error(errorMessage)

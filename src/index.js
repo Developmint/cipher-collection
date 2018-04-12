@@ -10,6 +10,7 @@ import multiplicative from './multiplicative'
 import affine from './affine'
 import aer256 from './aer256'
 import armon64 from './armon64'
+import polybius from './polybius'
 
 export default {
   rot,
@@ -23,5 +24,6 @@ export default {
   multiplicative,
   affine,
   aer256,
-  armon64
+  armon64,
+  polybius
 }

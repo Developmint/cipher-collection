@@ -20,3 +20,4 @@
 * [Affine](./ciphers/affine.md)
 * [AER-256](./ciphers/aer256.md)
 * [ARMON-64](./ciphers/armon64.md)
+* [Polybius](./ciphers/polybius.md)

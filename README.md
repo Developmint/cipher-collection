@@ -79,6 +79,7 @@ document.getElementById("t").innerHTML = this["cipher-collection"].wolfenbuettel
 - Affine
 - AER-256
 - ARMON-64
+- Polybius
 
 ## 📖 Documentation
 
