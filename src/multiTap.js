@@ -1,4 +1,4 @@
-import { throwOrSilent } from './helpers/index'
+import { mergeObjects, throwOrSilent } from './helpers'
 
 export const encode = (input, options = {}) => {
   options = { ...DEFAULT_OPTIONS, ...options }
@@ -17,31 +17,44 @@ export const encode = (input, options = {}) => {
 
 export const decode = (input, options = {}) => {
   options = { ...DEFAULT_OPTIONS, ...options }
-  const alphabet = alphabetWithSpaceKey(options.customMapping)
 
+  const alphabet = alphabetWithSpaceKey(options.customMapping)
   const invalidInputRegex = /[^\d^*# ]/g
+  const exponentFormRegex = /\d\^\d ?/g
+  const normalFormRegex = /(([79])\2{0,4}|([234568])\3{0,2}|([01*#])\4{0,2}) ?/g
 
   // Validate input
   if (input.match(invalidInputRegex)) {
     if (options.failOnUnknownCharacter) {
       throw Error(`Undecodable characters`)
-    } else {
-      input.replace(invalidInputRegex)
     }
+
+    input.replace(invalidInputRegex)
   }
 
   if (!input.length) {
     return ''
   }
 
-  const capturedInput = options.exponentForm ? input.match(/\d\^\d ?/g) : input.match(/(([79])\2{0,4}|([234568])\3{0,2}|([01*#])\4{0,2}) ?/g)
+  const capturedInput = options.exponentForm ? input.match(exponentFormRegex) : input.match(normalFormRegex)
+
   return capturedInput.map(expr => {
     expr = expr.replace(/ /g, '')
-    return options.exponentForm ? alphabet[expr[0]][expr[2] - 1] : alphabet[expr[0]][expr.length - 1]
+    /*
+     * Retrieve the letter from the lookup object.
+     * In exponent form use the number as key and get the letter on the exponent index
+     * In "normal form" use the number as key as well, but determine the latter based on the length of the expression
+     * Subtract one because array indices start at 0
+     */
+    const cellIdentifier = (options.exponentForm ? expr[2] : expr.length) - 1
+    return alphabet[expr[0]][cellIdentifier]
   }).join('')
 }
 
-const alphabetWithSpaceKey = customMapping => typeof customMapping === 'object' ? { ...ALPHABET, ...customMapping } : ALPHABET
+const alphabetWithSpaceKey = customMapping =>
+  customMapping && typeof customMapping === 'object'
+    ? mergeObjects(ALPHABET, customMapping)
+    : ALPHABET
 
 const DEFAULT_OPTIONS = {
   customMapping: {

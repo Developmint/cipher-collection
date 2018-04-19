@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import morse from './morse'
-import { randomInRange } from './helpers/index'
+import { randomInRange } from './helpers'
 
 export const decode = (input, keys = {}, morseOptions = {}) => {
   sanitizeKeys(keys)

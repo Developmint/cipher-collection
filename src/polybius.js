@@ -66,9 +66,8 @@ const DEFAULT_OPTIONS = {
 }
 
 const prepareGridString = options =>
-  [...options.key.toUpperCase(), ...getAlphabet(options)].reduce((acc, letter) => {
-    return !acc.includes(letter) ? acc.concat(letter) : acc
-  })
+  [...options.key.toUpperCase(), ...getAlphabet(options)]
+    .reduce((acc, letter) => !acc.includes(letter) ? acc.concat(letter) : acc)
 
 const getAlphabet = options => {
   const [substitute, toReplace] = [...options.equalLetters]

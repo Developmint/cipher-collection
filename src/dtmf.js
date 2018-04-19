@@ -1,4 +1,4 @@
-import { throwOrSilent } from './helpers/index'
+import { mergeObjects, throwOrSilent, toNumber } from './helpers'
 
 const decode = (input, options = {}) => {
   options = { ...DEFAULT_OPTIONS, ...options }
@@ -32,9 +32,19 @@ const decode = (input, options = {}) => {
 
 const includesKey = i => ([key]) => i.includes(key)
 
-const getLookup = mode => mode === 'include' ? LOOKUP : Object.entries(LOOKUP).map(([k, rowObj]) => {
-  return Object.entries(rowObj).reduce((acc, [rowK, v]) => ({ ...acc, ...{ [mode === 'sum' ? Number(rowK) + Number(k) : Number(rowK) - Number(k)]: v } }), {})
-}).reduce((acc, obj) => ({ ...acc, ...obj }), {})
+const getLookup = mode => mode === 'include' ? LOOKUP : getSumOrDiffLookup(mode)
+
+const getSumOrDiffLookup = mode => Object.entries(LOOKUP)
+  .map(([colFrequency, rowObject]) =>
+    Object.entries(rowObject).reduce((acc, cellObject) => mergeObjects(acc, getLookupObject(mode, colFrequency, cellObject)), {}))
+  .reduce(mergeObjects, {})
+
+const getLookupObject = (mode, colFrequency, [rowFrequency, character]) => {
+  [rowFrequency, colFrequency] = toNumber(rowFrequency, colFrequency)
+
+  const lookupKey = mode === 'sum' ? rowFrequency + colFrequency : rowFrequency - colFrequency
+  return { [lookupKey]: character }
+}
 
 const encode = (input, options = {}) => {
   options = { ...DEFAULT_OPTIONS, ...options }
@@ -44,10 +54,8 @@ const encode = (input, options = {}) => {
   return [...input].map(i => {
     const result = Object.entries(LOOKUP).map(([key, freqOb]) => {
       const foundFreq = Object.entries(freqOb).find(([k, v]) => v === i)
-      if (foundFreq) {
-        return encodeResult([key, foundFreq[0]], options)
-      }
-      return false
+
+      return foundFreq ? encodeResult([key, foundFreq[0]], options) : false
     }).find(o => o)
 
     return !result ? throwOrSilent(options, 'Invalid input') : result
@@ -60,7 +68,7 @@ const encodeResult = (frequencies, { mode, invertedOutput, connector }) => {
     frequencies.reverse()
   }
 
-  frequencies = frequencies.map(f => Number(f))
+  frequencies = toNumber(...frequencies)
 
   const resultObjects = {
     include: `${frequencies[0]}${connector}${frequencies[1]}`,

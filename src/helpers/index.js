@@ -43,3 +43,7 @@ export const modInverse = (number, mod) => {
   // Now find the mod inverse number or return false. Mod inverse: (i * number = 1) % mod
   return (rangeArray.find(i => i * number % mod === 1) % mod) || false
 }
+
+export const toNumber = (...args) => args.map(a => Number(a))
+
+export const mergeObjects = (a, b) => ({ ...a, ...b })

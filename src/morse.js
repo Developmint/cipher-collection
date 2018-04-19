@@ -1,31 +1,33 @@
-import { throwOrSilent } from './helpers/index'
+import { throwOrSilent } from './helpers'
 
 export const decode = (input, options = {}) => {
   options = { ...DEFAULT_OPTIONS, ...options }
-  return input.split(options.separator).map(c => {
-    const decodedCharacter = Object.entries(ALPHABET).find(([k, v]) => v === c)
+
+  return input.split(options.separator).map(character => {
+    const decodedCharacter = Object.entries(ALPHABET).find(([_, morse]) => morse === character)
 
     if (decodedCharacter) {
       return decodedCharacter[0]
     }
-    throwOrSilent(options, `Undecodable character ${c}`)
+    throwOrSilent(options, `Undecodable character ${character}`)
 
-    return options.omitUnknownCharacter ? '' : c
+    return options.omitUnknownCharacter ? '' : character
   }).join('')
 }
 
 export const encode = (input, options = {}) => {
   options = { ...DEFAULT_OPTIONS, ...options }
 
-  return [...input.toUpperCase()].map(c => {
-    const encodedCharacter = Object.entries(ALPHABET).find(([k]) => k === c)
+  return [...input.toUpperCase()].map(character => {
+    const encodedCharacter = Object.entries(ALPHABET).find(([clearCharacter]) => clearCharacter === character)
 
     if (encodedCharacter) {
       return encodedCharacter[1]
     }
-    throwOrSilent(options, `Unencodable character ${c}`)
 
-    return options.omitUnknownCharacter ? '' : c
+    throwOrSilent(options, `Unencodable character ${character}`)
+
+    return options.omitUnknownCharacter ? '' : character
   }).join(options.separator)
 }
 

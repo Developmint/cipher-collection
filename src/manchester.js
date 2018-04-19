@@ -1,4 +1,4 @@
-import { throwOrSilent } from './helpers/index'
+import { throwOrSilent } from './helpers'
 
 const decode = (input, options = {}) => {
   options = { ...DEFAULT_OPTIONS, ...options }
