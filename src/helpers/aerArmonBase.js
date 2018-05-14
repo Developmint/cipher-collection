@@ -3,7 +3,7 @@ const encode = (input, options) => {
     throw Error('Key is too short! It must be at least 3 characters')
   }
 
-  const heyKey = [...options.key].map(toHexCharCodeConcatenationNumber)
+  const hexKey = [...options.key].map(toHexCharCodeConcatenationNumber)
 
   const chunkedString = input.match(new RegExp(`.{1,${Math.round(options.key.length / 2)}}`, 'g'))
 
@@ -11,20 +11,16 @@ const encode = (input, options) => {
 
   return chunkedString.map(s =>
     keyLengthRange.reduce((acc, i) => {
-      switch (i % (options.isAer256 ? 3 : 4)) {
-        case 0:
-          acc += heyKey[i]
-          break
-        case 1:
-          acc /= heyKey[i]
-          break
-        case 2:
-          acc -= heyKey[i]
-          break
-        case 3:
-          acc *= 0.01 * heyKey[i]
-      }
-      return acc
+      const OPERATION_LOOKUP = [
+        (v, k) => v + k,
+        (v, k) => v / k,
+        (v, k) => v - k,
+        (v, k) => v * (0.01 * k)
+      ]
+
+      const modifier = i % (options.isAer256 ? 3 : 4)
+
+      return OPERATION_LOOKUP[modifier](acc, hexKey[i])
     }, toHexCharCodeConcatenationNumber(s))
   ).join(options.isAer256 ? ', ' : '+')
 }
@@ -41,20 +37,16 @@ const decode = (input, options) => {
   return input.split(options.isAer256 ? ', ' : '+').map(s => {
     // Reverse arithmetic from encoding based on parsed float from string
     const float = keyLengthRangeReversed.reduce((acc, i) => {
-      switch (i % (options.isAer256 ? 3 : 4)) {
-        case 0:
-          acc -= hexKey[i]
-          break
-        case 1:
-          acc *= hexKey[i]
-          break
-        case 2:
-          acc += hexKey[i]
-          break
-        case 3:
-          acc /= 0.01 * hexKey[i]
-      }
-      return acc
+      const OPERATION_LOOKUP = [
+        (v, k) => v - k,
+        (v, k) => v * k,
+        (v, k) => v + k,
+        (v, k) => v / (0.01 * k)
+      ]
+
+      const modifier = i % (options.isAer256 ? 3 : 4)
+
+      return OPERATION_LOOKUP[modifier](acc, hexKey[i])
     }, parseFloat(s))
 
     // Round output and convert it to hex
