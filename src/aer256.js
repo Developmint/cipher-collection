@@ -1,14 +1,12 @@
 import aer256ArmonBase from './helpers/aerArmonBase'
 
 const encode = (input, options = {}) => {
-  options = { ...DEFAULT_OPTIONS, ...options }
-  options.isAer256 = true
+  options = { ...DEFAULT_OPTIONS, ...options, isAer256: true }
   return aer256ArmonBase.encode(input, options)
 }
 
 const decode = (input, options = {}) => {
-  options = { ...DEFAULT_OPTIONS, ...options }
-  options.isAer256 = true
+  options = { ...DEFAULT_OPTIONS, ...options, isAer256: true }
   return aer256ArmonBase.decode(input, options)
 }
 
