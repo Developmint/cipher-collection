@@ -7,11 +7,11 @@ export const encode = (input, options = {}) => {
       const decodedCharacter = Object.entries(alphabetWithSpaceKey(options.customMapping)).find(([, v]) => v.includes(c))
       if (decodedCharacter) {
         const amount = decodedCharacter[1].indexOf(c) + 1
-        return (options.exponentForm ? `${decodedCharacter[0]}^${amount}` : `${decodedCharacter[0]}`.repeat(amount))
+        return options.exponentForm ? `${decodedCharacter[0]}^${amount}` : `${decodedCharacter[0]}`.repeat(amount)
       }
       return throwOrSilent(options, `Unencodable character ${c}`)
     })
-    .filter(c => c.length)
+    .filter(Boolean)
     .join(options.withSpacing ? ' ' : '')
 }
 

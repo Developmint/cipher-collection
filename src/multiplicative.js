@@ -7,8 +7,7 @@ const encode = (input, options = {}) => {
 }
 
 const decode = (input, options = {}) => {
-  options = { ...DEFAULT_OPTIONS, ...options }
-  options.decode = true
+  options = { ...DEFAULT_OPTIONS, ...options, decode: true }
 
   return transform(input, options)
 }

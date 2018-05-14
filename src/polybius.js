@@ -35,7 +35,7 @@ const encode = (input, options = {}) => {
     }
 
     return `${row}${col}`
-  }).filter(c => c.length).join(' ')
+  }).filter(Boolean).join(' ')
 }
 
 const decode = (input, options = {}) => {

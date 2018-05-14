@@ -9,9 +9,8 @@ export const decode = (input, options = {}) => {
     if (decodedCharacter) {
       return decodedCharacter[0]
     }
-    throwOrSilent(options, `Undecodable character ${character}`)
 
-    return options.omitUnknownCharacter ? '' : character
+    return throwOrSilent(options, `Undecodable character ${character}`) || options.omitUnknownCharacter ? '' : character
   }).join('')
 }
 
@@ -25,9 +24,7 @@ export const encode = (input, options = {}) => {
       return encodedCharacter[1]
     }
 
-    throwOrSilent(options, `Unencodable character ${character}`)
-
-    return options.omitUnknownCharacter ? '' : character
+    return throwOrSilent(options, `Unencodable character ${character}`) || options.omitUnknownCharacter ? '' : character
   }).join(options.separator)
 }
 
