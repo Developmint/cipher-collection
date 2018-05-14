@@ -46,4 +46,4 @@ export const modInverse = (number, mod) => {
 
 export const toNumber = (...args) => args.map(a => Number(a))
 
-export const mergeObjects = (a, b) => ({ ...a, ...b })
+export const mergeObjects = (...objects) => objects.reduce((acc, object) => ({ ...acc, ...object }), {})
