@@ -3,7 +3,7 @@ const encode = (input, options) => {
     throw Error('Key is too short! It must be at least 3 characters')
   }
 
-  const heyKey = [...options.key].map(reduceToHexCharCodeConcatenationNumber)
+  const heyKey = [...options.key].map(toHexCharCodeConcatenationNumber)
 
   const chunkedString = input.match(new RegExp(`.{1,${Math.round(options.key.length / 2)}}`, 'g'))
 
@@ -25,7 +25,7 @@ const encode = (input, options) => {
           acc *= 0.01 * heyKey[i]
       }
       return acc
-    }, reduceToHexCharCodeConcatenationNumber(s))
+    }, toHexCharCodeConcatenationNumber(s))
   ).join(options.isAer256 ? ', ' : '+')
 }
 
@@ -34,7 +34,7 @@ const decode = (input, options) => {
     throw Error('Key is too short! It must be at least 3 characters')
   }
 
-  const hexKey = [...options.key].map(reduceToHexCharCodeConcatenationNumber)
+  const hexKey = [...options.key].map(toHexCharCodeConcatenationNumber)
 
   const keyLengthRangeReversed = Array.from(new Array(options.key.length), (v, i) => i).reverse()
 
@@ -69,7 +69,7 @@ const decode = (input, options) => {
  * Map each character to hex representation of it's char code, join them together and then retrieve a decimal number
  * out of the concatenated hex string.
  */
-const reduceToHexCharCodeConcatenationNumber = c => parseInt([...c].map(x => {
+const toHexCharCodeConcatenationNumber = c => parseInt([...c].map(x => {
   const hexCharCode = x.charCodeAt(0).toString(16)
   if (hexCharCode.length > 2) {
     throw Error('Invalid character')
