@@ -81,6 +81,7 @@ document.getElementById("t").innerHTML = this["cipher-collection"].wolfenbuettel
 - AER-256
 - ARMON-64
 - Polybius
+- Bifid
 
 ## 📖 Documentation
 

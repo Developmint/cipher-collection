@@ -11,6 +11,7 @@ import affine from './affine'
 import aer256 from './aer256'
 import armon64 from './armon64'
 import polybius from './polybius'
+import bifid from './bifid'
 
 export default {
   rot,
@@ -25,5 +26,6 @@ export default {
   affine,
   aer256,
   armon64,
-  polybius
+  polybius,
+  bifid
 }
