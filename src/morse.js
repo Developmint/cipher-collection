@@ -4,7 +4,7 @@ export const decode = (input, options = {}) => {
   options = { ...DEFAULT_OPTIONS, ...options }
 
   return input.split(options.separator).map(character => {
-    const decodedCharacter = Object.entries(ALPHABET).find(([_, morse]) => morse === character)
+    const decodedCharacter = Object.entries(ALPHABET).find(([, morse]) => morse === character)
 
     if (decodedCharacter) {
       return decodedCharacter[0]

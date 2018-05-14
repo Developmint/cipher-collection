@@ -4,7 +4,7 @@ export const encode = (input, options = {}) => {
   options = { ...DEFAULT_OPTIONS, ...options }
   return [...input.toUpperCase()]
     .map(c => {
-      const decodedCharacter = Object.entries(alphabetWithSpaceKey(options.customMapping)).find(([k, v]) => v.includes(c))
+      const decodedCharacter = Object.entries(alphabetWithSpaceKey(options.customMapping)).find(([, v]) => v.includes(c))
       if (decodedCharacter) {
         const amount = decodedCharacter[1].indexOf(c) + 1
         return (options.exponentForm ? `${decodedCharacter[0]}^${amount}` : `${decodedCharacter[0]}`.repeat(amount))

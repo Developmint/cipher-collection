@@ -6,7 +6,7 @@ export const decode = (input, keys = {}, morseOptions = {}) => {
   sanitizeKeys(keys)
 
   input = [...input].map(c => {
-    const decodedCharacter = Object.entries(keys).find(([k, v]) => v.includes(c))
+    const decodedCharacter = Object.entries(keys).find(([, v]) => v.includes(c))
     const morseCode = decodedCharacter ? propToKey(decodedCharacter[0]) : false
 
     if (!morseCode) {

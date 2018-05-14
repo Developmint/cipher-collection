@@ -26,6 +26,7 @@ const decode = (input, options = {}) => {
     if (lookup.hasOwnProperty(i)) {
       return lookup[i]
     }
+
     return throwOrSilent(options, `Could not decode ${i} - No matching value`)
   }).join('')
 }
@@ -53,10 +54,10 @@ const encode = (input, options = {}) => {
 
   return [...input].map(i => {
     const result = Object.entries(LOOKUP).map(([key, freqOb]) => {
-      const foundFreq = Object.entries(freqOb).find(([k, v]) => v === i)
+      const foundFreq = Object.entries(freqOb).find(([, v]) => v === i)
 
       return foundFreq ? encodeResult([key, foundFreq[0]], options) : false
-    }).find(o => o)
+    }).find(Boolean)
 
     return !result ? throwOrSilent(options, 'Invalid input') : result
   }).join(options.separator)
