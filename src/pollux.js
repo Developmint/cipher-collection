@@ -43,10 +43,11 @@ const sanitizeKeys = keys => {
     throw Error('You have no keys set')
   }
 
-  const existingKeys = ['space', 'short', 'long', 'separator']
+  const requiredKeys = ['space', 'short', 'long', 'separator']
+  const existingKeys = Object.keys(keys)
 
-  if (Object.keys(keys).length !== existingKeys.length || Object.keys(keys).filter(key => !existingKeys.includes(key)).length) {
-    throw Error(`Please define your keys: ${existingKeys.join(', ')}`)
+  if (existingKeys.length !== requiredKeys.length || existingKeys.filter(key => !requiredKeys.includes(key)).length) {
+    throw Error(`Please define your keys: ${requiredKeys.join(', ')}`)
   }
 }
 
