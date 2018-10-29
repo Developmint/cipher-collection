@@ -7,6 +7,7 @@
   <a href="https://www.npmjs.com/package/cipher-collection"><img src="https://img.shields.io/npm/v/cipher-collection.svg" alt="Version"></a>
   <a href="https://www.npmjs.com/package/cipher-collection"><img src="https://img.shields.io/npm/l/cipher-collection.svg" alt="License"></a>
   <a href="https://conventionalcommits.org"><img src="https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg" alt="We use Conventional Commits"></a>
+  <a href="https://thanks.lichter.io/"><img src="https://img.shields.io/badge/thanks-%E2%99%A5-ff69b4.svg" alt="Thanks badge"></a>
 </p>
 
 > Zero-dependency modular cipher collection including all well-known and often used ciphers.
