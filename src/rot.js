@@ -17,7 +17,8 @@ import { ROTATE_AND_MULTIPLY_TYPES, rotateAndMultiply } from './helpers/rotateAn
 
 export default (input, options = {}) => {
   options = { ...DEFAULT_OPTIONS, ...options }
-  return [...input].map(c => rotateAndMultiply(c, getConfig(options))).join('')
+  const rotateAndMultiplyWithOptions = rotateAndMultiply(getConfig(options))
+  return [...input].map(rotateAndMultiplyWithOptions).join('')
 }
 
 const getConfig = options => ({
