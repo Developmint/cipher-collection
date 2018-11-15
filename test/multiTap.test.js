@@ -85,6 +85,6 @@ describe('decoding', () => {
   })
 
   test('with invalid characters and silent fail', () => {
-    expect(multiTap.decode('$2', silentFailOptions)).toBe('A')
+    expect(multiTap.decode('$€2%^&', silentFailOptions)).toBe('A')
   })
 })

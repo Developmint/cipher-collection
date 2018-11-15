@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import morse from './morse'
 import { randomInRange } from './helpers'
 

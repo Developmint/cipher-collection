@@ -35,15 +35,18 @@ const includesKey = i => ([key]) => i.includes(key)
 
 const getLookup = mode => mode === 'include' ? LOOKUP : getSumOrDiffLookup(mode)
 
-const getSumOrDiffLookup = mode => Object.entries(LOOKUP)
-  .map(([colFrequency, rowObject]) =>
-    Object.entries(rowObject).reduce((acc, cellObject) => mergeObjects(acc, getLookupObject(mode, colFrequency, cellObject)), {}))
-  .reduce(mergeObjects, {})
+const getSumOrDiffLookup = mode => {
+  const getLookupObjectForMode = getLookupObject(mode)
+  return Object.entries(LOOKUP)
+    .map(([colFrequency, rowObject]) => Object.entries(rowObject)
+      .reduce((acc, cellObject) => mergeObjects(acc, getLookupObjectForMode(colFrequency, cellObject)), {}))
+    .reduce(mergeObjects, {})
+}
 
-const getLookupObject = (mode, colFrequency, [rowFrequency, character]) => {
+const getLookupObject = mode => (colFrequency, [rowFrequency, character]) => {
   [rowFrequency, colFrequency] = toNumber(rowFrequency, colFrequency)
 
-  const lookupKey = mode === 'sum' ? rowFrequency + colFrequency : rowFrequency - colFrequency
+  const lookupKey = mode === MODES.sum ? rowFrequency + colFrequency : rowFrequency - colFrequency
   return { [lookupKey]: character }
 }
 
@@ -52,19 +55,21 @@ const encode = (input, options = {}) => {
 
   checkMode(options)
 
+  const encodeResultWithOptions = encodeResult(options)
+
   return [...input].map(i => {
     const result = Object.entries(LOOKUP).map(([key, freqOb]) => {
       const foundFreq = Object.entries(freqOb).find(([, v]) => v === i)
 
-      return foundFreq ? encodeResult([key, foundFreq[0]], options) : false
+      return foundFreq ? encodeResultWithOptions([key, foundFreq[0]]) : false
     }).find(Boolean)
 
     return !result ? throwOrSilent(options, 'Invalid input') : result
   }).join(options.separator)
 }
 
-const encodeResult = (frequencies, { mode, invertedOutput, connector }) => {
-  // If output should be inverted, reverse array
+const encodeResult = ({ mode, invertedOutput, connector }) => frequencies => {
+  // If output should be inverted, reverse array (mutates array)
   if (invertedOutput) {
     frequencies.reverse()
   }
@@ -81,12 +86,12 @@ const encodeResult = (frequencies, { mode, invertedOutput, connector }) => {
 }
 
 const checkMode = ({ mode }) => {
-  if (!TYPES.includes(mode)) {
+  if (!Object.values(MODES).includes(mode)) {
     throw new Error('Unknown mode')
   }
 }
 
-const TYPES = ['include', 'sum', 'diff']
+const MODES = { include: 'include', sum: 'sum', diff: 'diff' }
 
 const DEFAULT_OPTIONS = {
   mode: 'include',

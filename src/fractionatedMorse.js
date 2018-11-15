@@ -5,14 +5,15 @@ export const decode = (input, options = {}) => {
   options = { ...DEFAULT_OPTIONS, ...options }
   const morseOptions = { ...DEFAULT_MORSE_OPTION, ...{ failOnUnknownCharacter: options.failOnUnknownCharacter } }
 
-  let morseCode = [...input].map(c => {
-    const decodedCharacterIndex = options.keyAlphabet.indexOf(c)
-    if (decodedCharacterIndex !== -1) {
-      return ENCODED_ALPHABET[decodedCharacterIndex]
-    }
+  let morseCode = [...input]
+    .map(c => {
+      const decodedCharacterIndex = options.keyAlphabet.indexOf(c)
+      if (decodedCharacterIndex !== -1) {
+        return ENCODED_ALPHABET[decodedCharacterIndex]
+      }
 
-    return throwOrSilent(options, `Undecodable character ${c}`)
-  })
+      return throwOrSilent(options, `Undecodable character ${c}`)
+    })
     .join('')
 
     // Remove padding if needed
@@ -38,7 +39,8 @@ export const encode = (input, options = {}) => {
       }
 
       return throwOrSilent(options, `Unencodable character ${c}`)
-    }).join('')
+    })
+    .join('')
 }
 
 const morseCodeFromInput = (input, morseOptions) => {

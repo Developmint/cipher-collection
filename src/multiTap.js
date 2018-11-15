@@ -28,33 +28,30 @@ export const decode = (input, options = {}) => {
     if (options.failOnUnknownCharacter) {
       throw Error(`Undecodable characters`)
     }
-
-    input.replace(invalidInputRegex)
   }
 
   if (!input.length) {
     return ''
   }
 
-  const capturedInput = options.exponentForm ? input.match(exponentFormRegex) : input.match(normalFormRegex)
+  const capturedInput = input.match(options.exponentForm ? exponentFormRegex : normalFormRegex)
 
-  return capturedInput.map(expr => {
-    expr = expr.replace(/ /g, '')
+  return capturedInput.map(expression => {
+    expression = expression.replace(/ /g, '')
     /*
      * Retrieve the letter from the lookup object.
      * In exponent form use the number as key and get the letter on the exponent index
      * In "normal form" use the number as key as well, but determine the latter based on the length of the expression
      * Subtract one because array indices start at 0
      */
-    const cellIdentifier = (options.exponentForm ? expr[2] : expr.length) - 1
-    return alphabet[expr[0]][cellIdentifier]
+    const cellIdentifier = (options.exponentForm ? expression[2] : expression.length) - 1
+    return alphabet[expression[0]][cellIdentifier]
   }).join('')
 }
 
-const alphabetWithSpaceKey = customMapping =>
-  customMapping && typeof customMapping === 'object'
-    ? mergeObjects(ALPHABET, customMapping)
-    : ALPHABET
+const alphabetWithSpaceKey = customMapping => customMapping && typeof customMapping === 'object'
+  ? mergeObjects(ALPHABET, customMapping)
+  : ALPHABET
 
 const DEFAULT_OPTIONS = {
   customMapping: {

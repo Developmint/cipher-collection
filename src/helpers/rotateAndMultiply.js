@@ -18,7 +18,7 @@ const isAllowed = (characterType, allowedTypes) => {
 }
 
 const modifyCharacter = (c, options) => {
-  const asciiOfset = ROTATE_AND_MULTIPLY_ASCII[options.type]
+  const asciiOffset = ROTATE_AND_MULTIPLY_ASCII[options.type]
   const parsedCharacter = parseInt(c, 36) - (options.type === ROTATE_AND_MULTIPLY_TYPES.NUMBER ? 0 : 10)
   const mod = options.type === ROTATE_AND_MULTIPLY_TYPES.NUMBER ? 10 : 26
   const multiplicationKey = options.decode ? modInverse(options.keys[0], mod) : options.keys[0]
@@ -32,7 +32,7 @@ const modifyCharacter = (c, options) => {
     transformedCode += mod
   }
 
-  return String.fromCharCode(asciiOfset + (transformedCode % mod))
+  return String.fromCharCode(asciiOffset + (transformedCode % mod))
 }
 
 const DEFAULT_ROTATE_AND_MULTIPLY_OPTIONS = {
@@ -43,9 +43,10 @@ const DEFAULT_ROTATE_AND_MULTIPLY_OPTIONS = {
   decode: false
 }
 
-const getType = c => (c >= 'a' && c <= 'z') ? ROTATE_AND_MULTIPLY_TYPES.LOWERCASE : (c >= 'A' && c <= 'Z')
-  ? ROTATE_AND_MULTIPLY_TYPES.UPPERCASE : (c >= '0' && c <= '9')
-    ? ROTATE_AND_MULTIPLY_TYPES.NUMBER : ROTATE_AND_MULTIPLY_TYPES.OTHER
+const getType = c => (c >= 'a' && c <= 'z')
+  ? ROTATE_AND_MULTIPLY_TYPES.LOWERCASE : (c >= 'A' && c <= 'Z')
+    ? ROTATE_AND_MULTIPLY_TYPES.UPPERCASE : (c >= '0' && c <= '9')
+      ? ROTATE_AND_MULTIPLY_TYPES.NUMBER : ROTATE_AND_MULTIPLY_TYPES.OTHER
 
 export const ROTATE_AND_MULTIPLY_TYPES = {
   UPPERCASE: 1,
