@@ -44,7 +44,8 @@ const decode = (input, options = {}) => {
   const grid = prepareGridString(options)
   let squareSize = options.withNumbers ? 6 : 5
 
-  return input.split(' ')
+  return input
+    .split(' ')
     .map(sequence => {
       if (!sequence.match(/\d{2}/)) {
         return errorExpression(sequence, options)
@@ -65,9 +66,10 @@ const DEFAULT_OPTIONS = {
   omitUnknownCharacter: true
 }
 
-const prepareGridString = options =>
-  [...options.key.toUpperCase(), ...getAlphabet(options)]
-    .reduce((acc, letter) => !acc.includes(letter) ? acc.concat(letter) : acc)
+const prepareGridString = options => [
+  ...options.key.toUpperCase(),
+  ...getAlphabet(options)
+].reduce((acc, letter) => !acc.includes(letter) ? acc.concat(letter) : acc)
 
 const getAlphabet = options => {
   const [substitute, toReplace] = [...options.equalLetters]
