@@ -5,7 +5,7 @@ const decode = (input, options = {}) => {
 
   if (input.match(/[^01]/g)) {
     throwOrSilent(options, 'Invalid Input')
-    input = [...input].filter(c => '01'.includes(c)).join('')
+    input = [...input].filter(c => /[01]/.test(c)).join('')
   }
 
   if (input.length % 2) {
