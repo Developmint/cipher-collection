@@ -1,6 +1,6 @@
 import { modInverse, throwOrSilent } from './index'
 
-export const rotateAndMultiply = (c, options) => {
+export const rotateAndMultiply = options => c => {
   options = { ...DEFAULT_ROTATE_AND_MULTIPLY_OPTIONS, ...options }
   const type = getType(c)
 
