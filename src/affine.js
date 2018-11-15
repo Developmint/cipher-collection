@@ -16,11 +16,12 @@ const transform = (input, options) => {
   if (!LEGAL_MULT_KEYS.includes(options.keys[0])) {
     throw new Error('Illegal keys')
   }
+  const rotateAndMultiplyWithOptions = rotateAndMultiply(getConfig(options))
 
-  return [...input].map(c => rotateAndMultiply(c, getRotateAndMultiplyConfig(options))).join('')
+  return [...input].map(rotateAndMultiplyWithOptions).join('')
 }
 
-const getRotateAndMultiplyConfig = options => ({
+const getConfig = options => ({
   types: [ROTATE_AND_MULTIPLY_TYPES.LOWERCASE, ROTATE_AND_MULTIPLY_TYPES.UPPERCASE],
   keys: options.keys,
   failOnUnknownCharacter: options.failOnUnknownCharacter,
