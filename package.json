@@ -90,6 +90,8 @@
       "/node_modules/",
       "/.templates/"
     ],
-    "coverageDirectory": "./coverage/"
+    "coverageDirectory": "./coverage/",
+    "verbose": true,
+    "testURL": "http://localhost/"
   }
 }
