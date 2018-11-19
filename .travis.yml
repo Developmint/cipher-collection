@@ -3,13 +3,13 @@ node_js:
   - "10"
   - "11"
 cache:
-  npm: true
+  yarn: true
   directories:
     - node_modules
 install:
-  - npm install
+  - yarn
 script:
   - commitlint-travis
-  - npm t
+  - yarn test
 after_success:
-- npm run coverage
+- yarn coverage
