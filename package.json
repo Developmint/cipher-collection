@@ -76,7 +76,7 @@
     "jest-environment-node": "^22.4.3",
     "regenerator-runtime": "^0.13.1",
     "rollup": "^0.67.3",
-    "rollup-plugin-babel": "^3.0.7",
+    "rollup-plugin-babel": "^4.0.3",
     "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-node-resolve": "^3.4.0",
     "rollup-plugin-uglify": "^6.0.0"
