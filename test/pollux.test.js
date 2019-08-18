@@ -19,7 +19,7 @@ describe('decoding', () => {
 
   test('multiple key characters', () => {
     const keys = {
-      space: 'AB', short: 'CD', long: 'EF', 'separator': 'GH'
+      space: 'AB', short: 'CD', long: 'EF', separator: 'GH'
     }
     expect(pollux.decode('CCCCADBCEDCBCFDDBEFE', keys)).toBe('HELLO')
     expect(pollux.decode(`${keys.short[0]}${keys.space[0]}${keys.long[1]}`, keys)).toBe('ET')
@@ -29,20 +29,20 @@ describe('decoding', () => {
   test('with custom MorseConfig', () => {
     const morseConfig = { failOnUnknownCharacter: false }
     expect(pollux.decode(morse.encode(alphabet, morseConfig), keys, morseConfig)).toBe(alphabet)
-    expect(() => { pollux.decode('€€', keys, morseConfig) }).toThrowError('Unknown key €')
+    expect(() => { pollux.decode('€€', keys, morseConfig) }).toThrow('Unknown key €')
   })
 
   test('€', () => {
     const morseConfig = { failOnUnknownCharacter: false }
-    expect(() => { pollux.decode('€€', keys, morseConfig) }).toThrowError('Unknown key €')
+    expect(() => { pollux.decode('€€', keys, morseConfig) }).toThrow('Unknown key €')
   })
 
   test('no keys', () => {
-    expect(() => { pollux.decode('') }).toThrowError('You have no keys set')
+    expect(() => { pollux.decode('') }).toThrow('You have no keys set')
 
-    expect(() => { pollux.decode('', { space: ' ' }) }).toThrowError(defineKeyError)
-    expect(() => { pollux.decode('', { space: ' ', short: '.' }) }).toThrowError(defineKeyError)
-    expect(() => { pollux.decode('', { space: ' ', short: '.', long: '-' }) }).toThrowError(defineKeyError)
+    expect(() => { pollux.decode('', { space: ' ' }) }).toThrow(defineKeyError)
+    expect(() => { pollux.decode('', { space: ' ', short: '.' }) }).toThrow(defineKeyError)
+    expect(() => { pollux.decode('', { space: ' ', short: '.', long: '-' }) }).toThrow(defineKeyError)
   })
 })
 
@@ -63,13 +63,13 @@ describe('encoding', () => {
   test('with custom MorseConfig', () => {
     const morseConfig = { failOnUnknownCharacter: false }
     expect(pollux.encode(alphabet, keys, morseConfig)).toBe(morse.encode(alphabet, morseConfig))
-    expect(() => { pollux.encode('€€', keys, morseConfig) }).toThrowError('Unknown key €')
+    expect(() => { pollux.encode('€€', keys, morseConfig) }).toThrow('Unknown key €')
   })
 
   test('no keys', () => {
-    expect(() => { pollux.encode('') }).toThrowError('You have no keys set')
+    expect(() => { pollux.encode('') }).toThrow('You have no keys set')
 
-    expect(() => { pollux.encode('', { space: ' ' }) }).toThrowError(defineKeyError)
-    expect(() => { pollux.encode('', { space: ' ', short: '.', long: '-' }) }).toThrowError(defineKeyError)
+    expect(() => { pollux.encode('', { space: ' ' }) }).toThrow(defineKeyError)
+    expect(() => { pollux.encode('', { space: ' ', short: '.', long: '-' }) }).toThrow(defineKeyError)
   })
 })

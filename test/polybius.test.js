@@ -9,7 +9,7 @@ describe('encoding', () => {
       ' 43 44 45 51 52 53 54 55')
   })
   test('default with illegal character', () => {
-    expect(() => { polybius.encode('*') }).toThrowError('Unknown character *')
+    expect(() => { polybius.encode('*') }).toThrow('Unknown character *')
   })
 
   test('with custom key', () => {
@@ -49,8 +49,8 @@ describe('decoding', () => {
     expect(polybius.decode('11 12 13 14 15 21 22 23 24 24 25 31 32 33 34 35 41 42 43 44 45 51 52 53 54 55')).toBe('ABCDEFGHIIKLMNOPQRSTUVWXYZ')
   })
   test('default with illegal character', () => {
-    expect(() => { polybius.decode('*') }).toThrowError('Unknown character *')
-    expect(() => { polybius.decode('88') }).toThrowError('Unknown character 88')
+    expect(() => { polybius.decode('*') }).toThrow('Unknown character *')
+    expect(() => { polybius.decode('88') }).toThrow('Unknown character 88')
   })
 
   test('with custom key', () => {

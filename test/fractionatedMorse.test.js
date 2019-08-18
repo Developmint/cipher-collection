@@ -19,9 +19,9 @@ describe('encoding', () => {
     expect(fractionatedMorse.encode('1234567890.,:;?-_()\'=+/@')).toBe('EOBOAOAFACJCMCNCNLNODKWBQMCKDSMHAFBKVMVMPNLJFDLJLED')
     expect(fractionatedMorse.encode('A D E F')).toBe('FVIIBI')
 
-    expect(() => { fractionatedMorse.encode('€€€') }).toThrowError('Unencodable character')
-    expect(() => { fractionatedMorse.encode('Ü') }).toThrowError('Unencodable character')
-    expect(() => { fractionatedMorse.encode('A  A') }).toThrowError('Unencodable character')
+    expect(() => { fractionatedMorse.encode('€€€') }).toThrow('Unencodable character')
+    expect(() => { fractionatedMorse.encode('Ü') }).toThrow('Unencodable character')
+    expect(() => { fractionatedMorse.encode('A  A') }).toThrow('Unencodable character')
   })
 
   test('with different keyAlphabet', () => {
@@ -43,7 +43,7 @@ describe('decoding', () => {
     expect(fractionatedMorse.decode('EOBOAOAFACJCMCNCNLNODKWBQMCKDSMHAFBKVMVMPNLJFDLJLED')).toBe('1234567890.,:;?-_()\'=+/@')
     expect(fractionatedMorse.decode('FT')).toBe('A A')
     expect(fractionatedMorse.decode('FVIIBI')).toBe('A D E F')
-    expect(() => { fractionatedMorse.decode('ÜÄÖ') }).toThrowError('Undecodable character')
+    expect(() => { fractionatedMorse.decode('ÜÄÖ') }).toThrow('Undecodable character')
   })
 
   test('with different keyAlphabet', () => {

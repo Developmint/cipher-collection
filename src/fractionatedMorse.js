@@ -5,7 +5,7 @@ export const decode = (input, options = {}) => {
   options = { ...DEFAULT_OPTIONS, ...options }
   const morseOptions = { ...DEFAULT_MORSE_OPTION, ...{ failOnUnknownCharacter: options.failOnUnknownCharacter } }
 
-  let morseCode = [...input]
+  const morseCode = [...input]
     .map(c => {
       const decodedCharacterIndex = options.keyAlphabet.indexOf(c)
       if (decodedCharacterIndex !== -1) {

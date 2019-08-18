@@ -23,7 +23,7 @@ const decode = (input, options = {}) => {
       return foundCell[1]
     }
 
-    if (lookup.hasOwnProperty(i)) {
+    if (typeof lookup[i] !== 'undefined') {
       return lookup[i]
     }
 

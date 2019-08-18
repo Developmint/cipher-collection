@@ -27,7 +27,7 @@ describe('decoding', () => {
   })
 
   test('decoding invalid character', () => {
-    expect(() => { morse.decode(invalidMorseCharacter.input) }).toThrowError('Undecodable character')
+    expect(() => { morse.decode(invalidMorseCharacter.input) }).toThrow('Undecodable character')
     expect(morse.decode(invalidMorseCharacter.input, {
       failOnUnknownCharacter: false
     })).toBe(invalidMorseCharacter.preserve)
@@ -42,7 +42,7 @@ describe('encoding', () => {
     expect(morse.encode(alphabet)).toBe(encodedAlphabet)
   })
   test('encoding invalid character', () => {
-    expect(() => { morse.encode(invalidCharacter.input) }).toThrowError('Unencodable character')
+    expect(() => { morse.encode(invalidCharacter.input) }).toThrow('Unencodable character')
     expect(morse.encode(invalidCharacter.input, {
       separator: '',
       failOnUnknownCharacter: false

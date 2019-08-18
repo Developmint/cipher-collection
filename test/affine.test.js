@@ -12,7 +12,7 @@ describe('encoding', () => {
   })
   test('failing with unknown character', () => {
     expect(() => { affine.encode('AB/', { failOnUnknownCharacter: true }) })
-      .toThrowError('Could not transform character')
+      .toThrow('Could not transform character')
   })
   test('omitting unknown character', () => {
     expect(affine.encode('AB/', { omitUnknownCharacter: true })).toBe('BE')
@@ -24,7 +24,7 @@ describe('encoding', () => {
     expect(affine.encode('ABCDEFGHIJKLMNOPQRSTUVWXYZ'.toLowerCase(), { keys: [25, 3] })).toBe('DCBAZYXWVUTSRQPONMLKJIHGFE'.toLowerCase())
   })
   test('illegal key', () => {
-    expect(() => { affine.encode('ABCDEFGHIJKLMNOPQRSTUVWXYZ', { keys: [1, 1] }) }).toThrowError('Illegal key')
+    expect(() => { affine.encode('ABCDEFGHIJKLMNOPQRSTUVWXYZ', { keys: [1, 1] }) }).toThrow('Illegal key')
   })
 })
 
@@ -40,7 +40,7 @@ describe('decoding', () => {
   })
   test('failing with unknown character', () => {
     expect(() => { affine.decode('BE/', { failOnUnknownCharacter: true }) })
-      .toThrowError('Could not transform character')
+      .toThrow('Could not transform character')
   })
   test('omitting unknown character', () => {
     expect(affine.decode('BE/', { omitUnknownCharacter: true })).toBe('AB')
@@ -52,6 +52,6 @@ describe('decoding', () => {
     expect(affine.decode('DCBAZYXWVUTSRQPONMLKJIHGFE'.toLowerCase(), { keys: [25, 3] })).toBe('ABCDEFGHIJKLMNOPQRSTUVWXYZ'.toLowerCase())
   })
   test('illegal key', () => {
-    expect(() => { affine.decode('DCBAZYXWVUTSRQPONMLKJIHGFE', { keys: [1, 1] }) }).toThrowError('Illegal key')
+    expect(() => { affine.decode('DCBAZYXWVUTSRQPONMLKJIHGFE', { keys: [1, 1] }) }).toThrow('Illegal key')
   })
 })

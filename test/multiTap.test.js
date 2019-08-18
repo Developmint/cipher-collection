@@ -46,7 +46,7 @@ describe('encoding', () => {
   })
 
   test('with invalid characters', () => {
-    expect(() => { multiTap.encode('$') }).toThrowError('Unencodable character $')
+    expect(() => { multiTap.encode('$') }).toThrow('Unencodable character $')
   })
 
   test('with invalid characters and silent fail', () => {
@@ -81,7 +81,7 @@ describe('decoding', () => {
   })
 
   test('with invalid characters', () => {
-    expect(() => { multiTap.decode('$2') }).toThrowError('Undecodable character')
+    expect(() => { multiTap.decode('$2') }).toThrow('Undecodable character')
   })
 
   test('with invalid characters and silent fail', () => {

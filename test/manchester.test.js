@@ -25,7 +25,7 @@ describe('encoding', () => {
 
   test('empty', () => {
     expect(manchester.encode('', silentFailOptions)).toBe('')
-    expect(() => { manchester.encode('') }).toThrowError('Invalid Input after splitting')
+    expect(() => { manchester.encode('') }).toThrow('Invalid Input after splitting')
   })
 
   test('invalid', () => {
@@ -33,8 +33,8 @@ describe('encoding', () => {
     expect(manchester.encode('€', silentFailOptions)).toBe('')
     expect(manchester.encode('€0', silentFailOptions)).toBe('01')
 
-    expect(() => { manchester.encode('A') }).toThrowError('Invalid Input')
-    expect(() => { manchester.encode('€') }).toThrowError('Invalid Input')
+    expect(() => { manchester.encode('A') }).toThrow('Invalid Input')
+    expect(() => { manchester.encode('€') }).toThrow('Invalid Input')
   })
 })
 
@@ -55,7 +55,7 @@ describe('decoding', () => {
 
   test('empty', () => {
     expect(manchester.decode('', silentFailOptions)).toBe('')
-    expect(() => { manchester.decode('') }).toThrowError('Invalid Input after splitting')
+    expect(() => { manchester.decode('') }).toThrow('Invalid Input after splitting')
   })
 
   test('invalid', () => {
@@ -64,8 +64,8 @@ describe('decoding', () => {
     expect(manchester.decode('€', silentFailOptions)).toBe('')
     expect(manchester.decode('€01', silentFailOptions)).toBe('0')
 
-    expect(() => { manchester.decode('0') }).toThrowError('Invalid Input')
-    expect(() => { manchester.decode('A') }).toThrowError('Invalid Input')
-    expect(() => { manchester.decode('€') }).toThrowError('Invalid Input')
+    expect(() => { manchester.decode('0') }).toThrow('Invalid Input')
+    expect(() => { manchester.decode('A') }).toThrow('Invalid Input')
+    expect(() => { manchester.decode('€') }).toThrow('Invalid Input')
   })
 })

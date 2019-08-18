@@ -1,8 +1,8 @@
 import { substitute } from 'helpers/substitute'
 
 describe('substitute', () => {
-  const mappingOptions = { mapping: { 'A': 'M' } }
-  const mappingAndCaseInsensitiveOptions = { mapping: { 'A': 'M' }, caseSensitive: false }
+  const mappingOptions = { mapping: { A: 'M' } }
+  const mappingAndCaseInsensitiveOptions = { mapping: { A: 'M' }, caseSensitive: false }
   test('default', () => {
     expect(substitute('A')).toBe('A')
   })

@@ -2,7 +2,7 @@ import aer256 from 'aer256'
 
 describe('encoding', () => {
   test('default', () => {
-    expect(() => { aer256.encode('1432.382960035134') }).toThrowError('Key is too short! It must be at least 3 characters')
+    expect(() => { aer256.encode('1432.382960035134') }).toThrow('Key is too short! It must be at least 3 characters')
   })
   test('with key', () => {
     expect(aer256.encode('hey', { key: 'ABCDEF' })).toBe('1432.382960035134')
@@ -12,13 +12,13 @@ describe('encoding', () => {
     expect(aer256.encode('hey!*Aäää', { key: 'ABCDEF*' })).toBe('384574.7097057532, 155650.8842775582, -27.9211682037769')
   })
   test('invalid characters', () => {
-    expect(() => { aer256.encode('💯文', {key: 'ABCDEF*'}) }).toThrowError('Invalid character')
+    expect(() => { aer256.encode('💯文', { key: 'ABCDEF*' }) }).toThrow('Invalid character')
   })
 })
 
 describe('decoding', () => {
   test('default', () => {
-    expect(() => { aer256.decode('1432.382960035134') }).toThrowError('Key is too short! It must be at least 3 characters')
+    expect(() => { aer256.decode('1432.382960035134') }).toThrow('Key is too short! It must be at least 3 characters')
   })
   test('with key', () => {
     expect(aer256.decode('1432.382960035134', { key: 'ABCDEF' })).toBe('hey')

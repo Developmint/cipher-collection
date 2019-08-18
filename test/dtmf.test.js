@@ -36,11 +36,11 @@ describe('encoding', () => {
   })
 
   test('unknown mode', () => {
-    expect(() => { dtmf.encode(alphabet, { mode: 'UH' }) }).toThrowError('Unknown mode')
+    expect(() => { dtmf.encode(alphabet, { mode: 'UH' }) }).toThrow('Unknown mode')
   })
 
   test('invalid input', () => {
-    expect(() => { dtmf.encode('Y') }).toThrowError('Invalid input')
+    expect(() => { dtmf.encode('Y') }).toThrow('Invalid input')
   })
 
   test('invalid input with silentFail', () => {
@@ -74,13 +74,13 @@ describe('decoding', () => {
   })
 
   test('unknown mode', () => {
-    expect(() => { dtmf.decode(alphabet, { mode: 'UH' }) }).toThrowError('Unknown mode')
+    expect(() => { dtmf.decode(alphabet, { mode: 'UH' }) }).toThrow('Unknown mode')
   })
 
   test('invalid input', () => {
-    expect(() => { dtmf.decode('a') }).toThrowError('Could not decode a - No row found')
-    expect(() => { dtmf.decode('697') }).toThrowError('Could not decode 697 - No cell found')
-    expect(() => { dtmf.decode('a', { mode: 'sum' }) }).toThrowError('Could not decode a - No matching value')
+    expect(() => { dtmf.decode('a') }).toThrow('Could not decode a - No row found')
+    expect(() => { dtmf.decode('697') }).toThrow('Could not decode 697 - No cell found')
+    expect(() => { dtmf.decode('a', { mode: 'sum' }) }).toThrow('Could not decode a - No matching value')
   })
 
   test('invalid input with silent fail', () => {

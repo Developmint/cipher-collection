@@ -8,9 +8,9 @@ const retrieveOptions = options => ({
 })
 
 const DEFAULT_MAPPING = {
-  'A': 'M',
-  'E': 'K',
-  'I': 'D',
-  'O': 'T',
-  'U': 'H'
+  A: 'M',
+  E: 'K',
+  I: 'D',
+  O: 'T',
+  U: 'H'
 }

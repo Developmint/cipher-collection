@@ -10,7 +10,7 @@ describe('randomInRange', () => {
     expect(randomInRange(0, 0)).toBe(0)
   })
   test('returns error when min > max', () => {
-    expect(() => { randomInRange(1, 0) }).toThrowError('Min cannot be larger than max')
+    expect(() => { randomInRange(1, 0) }).toThrow('Min cannot be larger than max')
   })
 })
 
@@ -22,10 +22,10 @@ describe('modInverse', () => {
     expect(modInverse(1, 2)).toBe(1)
   })
   test('it throws error on invalid input', () => {
-    expect(() => { modInverse(-1, 26) }).toThrowError()
-    expect(() => { modInverse(3, 1) }).toThrowError()
-    expect(() => { modInverse(3, 0) }).toThrowError()
-    expect(() => { modInverse('b', 'A') }).toThrowError()
+    expect(() => { modInverse(-1, 26) }).toThrow()
+    expect(() => { modInverse(3, 1) }).toThrow()
+    expect(() => { modInverse(3, 0) }).toThrow()
+    expect(() => { modInverse('b', 'A') }).toThrow()
   })
   test('it returns correct inverse for prime mods', () => {
     expect(modInverse(1, 7)).toBe(1)

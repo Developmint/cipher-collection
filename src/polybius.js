@@ -42,7 +42,7 @@ const decode = (input, options = {}) => {
   options = { ...DEFAULT_OPTIONS, ...options }
 
   const grid = prepareGridString(options)
-  let squareSize = options.withNumbers ? 6 : 5
+  const squareSize = options.withNumbers ? 6 : 5
 
   return input
     .split(' ')
