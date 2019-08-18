@@ -1,8 +1,10 @@
 import { decode, encode } from 'numbersToWords'
 
 const resultPairs = [
-  [1.234562343, 'one point two three four five six two three four three'],
-  [1, 'one']
+  [1.2345678901, 'one point two three four five six seven eight nine zero one'],
+  [1, 'one'],
+  [3.012001, 'three point zero one two zero zero one'],
+  [0, 'zero']
 ]
 
 describe('encoding', () => {

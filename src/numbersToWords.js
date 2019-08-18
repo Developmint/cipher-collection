@@ -34,7 +34,7 @@ export const decode = str => Number(str.split(' ').map(numberExpression => numbe
 // numToWords :: (Number a, String a) => a -> String
 const numToWords = n => {
   if (n === '0') {
-    return onesWithZero[0]
+    return `${onesWithZero[0]} `
   }
 
   const isDecimal = n.match(/(.*)\.(.*)/)
